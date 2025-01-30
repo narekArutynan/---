@@ -1,0 +1,26 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Привет
+      - Здравствуйте
+      - Добрый день
+
+  - intent: goodbye
+    examples: |
+      - Пока
+      - До свидания
+      - Увидимся
+
+  - intent: express_feeling
+    examples: |
+      - Я чувствую себя плохо
+      - Мне грустно
+      - Я тревожусь
+
+  - intent: request_help
+    examples: |
+      - Мне нужна помощь
+      - Поговорите со мной
+      - Я хочу поговорить со специалистом
