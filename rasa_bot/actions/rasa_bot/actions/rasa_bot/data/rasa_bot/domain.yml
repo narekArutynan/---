@@ -1,0 +1,23 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - express_feeling
+  - request_help
+
+responses:
+  utter_greet:
+    - text: "Привет! Как вы себя чувствуете сегодня?"
+  utter_goodbye:
+    - text: "До свидания! Берегите себя."
+  utter_offer_help:
+    - text: "Хотите поговорить со специалистом?"
+
+actions:
+  - action_detect_emotion
+  - action_create_zoom_meeting
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
