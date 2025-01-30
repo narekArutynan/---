@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file: .env
+
+  mobile_app:
+    build: ./mobile_app
+    ports:
+      - "8081:8081"
+
+  ai_services:
+    build: ./ai_services
+    ports:
+      - "5000:5000"
+
+  messaging:
+    build: ./messaging_gateway
+    env_file: .env
+
+  emergency:
+    build: ./emergency_service
+    ports:
+      - "8001:8001"
+
+  redis:
+    image: redis:alpine
+
+  postgres:
+    image: postgres:13
+    env_file: .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
