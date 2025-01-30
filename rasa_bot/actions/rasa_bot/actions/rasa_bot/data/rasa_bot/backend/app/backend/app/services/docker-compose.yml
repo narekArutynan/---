@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  rasa:
+    build: ./rasa_bot
+    ports:
+      - "5005:5005"
+    env_file: .env
+
+  action-server:
+    build: ./rasa_bot
+    command: rasa run actions
+    ports:
+      - "5055:5055"
+    env_file: .env
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file: .env
+
+  postgres:
+    image: postgres:13
+    env_file: .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
